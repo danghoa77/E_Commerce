@@ -3,16 +3,19 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const authRouter = require('./routes/auth/auth-route');
-mongoose.connect('mongodb+srv://daghoa777:56pGRA31fQ17wl7B@cluster0.8bj6z.mongodb.net/')
+mongoose.connect('mongodb+srv://danghoa:danghoa@cluster0.pis3u.mongodb.net/test')
     .then(() => console.log('MongoDb connected'))
-    .catch((err) => console.log(err))
+    .catch((err) => console.log("error", err))
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(
     cors({
-        origin: 'http://localhost:5173/',
+        //origin: 'http://localhost:5175',
+        origin: true,
         methods: ['GET', 'POST', 'DELETE', 'PUT'],
         allowedHeaders: [
             "Content-Type",

@@ -1,14 +1,15 @@
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+/* eslint-disable react/prop-types */
+import { Input } from "../../../components/ui/input";
+import { Label } from "../../../components/ui/label";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "../ui/select";
-import { Textarea } from "../ui/textarea";
-import { Button } from "../ui/button";
+} from "../../../components/ui/select";
+import { Textarea } from "../../../components/ui/textarea";
+import { Button } from "../../../components/ui/button";
 
 function CommonForm({
     formControls,
@@ -26,6 +27,7 @@ function CommonForm({
             case "input":
                 element = (
                     <Input
+                        className="px-2"
                         name={getControlItem.name}
                         placeholder={getControlItem.placeholder}
                         id={getControlItem.name}
@@ -113,12 +115,12 @@ function CommonForm({
             <div className="flex flex-col gap-3">
                 {formControls.map((controlItem) => (
                     <div className="grid w-full gap-1.5" key={controlItem.name}>
-                        <Label className="mb-1">{controlItem.label}</Label>
+                        <Label className="mb-1 ">{controlItem.label}</Label>
                         {renderInputsByComponentType(controlItem)}
                     </div>
                 ))}
             </div>
-            <Button disabled={isBtnDisabled} type="submit" className="mt-2 w-full">
+            <Button disabled={isBtnDisabled} type="submit" className="mt-2 text-white  bg-black py-2 rounded-md w-full">
                 {buttonText || "Submit"}
             </Button>
         </form>

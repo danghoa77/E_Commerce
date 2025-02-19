@@ -15,11 +15,16 @@ import ShoppingCheckout from "./pages/shopping-view/checkout"
 import ShoppingAccount from "./pages/shopping-view/account"
 import { CheckAuth } from "./components/common/check-auth"
 import UnAuthPage from "./pages/unauth-page"
+import { useSelect } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
 
 function App() {
 
-  const isAuthenticated = false
-  const user = null
+  // const isAuthenticated = false
+  // const user = null
+
+  const { user, isAuthenticated } = useSelector(state => state.auth)
+
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
