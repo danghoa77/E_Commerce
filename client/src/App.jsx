@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import AuthLogin from "./pages/auth/login"
 import AuthLayout from "./components/auth/layout"
 import { Routes, Route } from 'react-router-dom'
@@ -16,14 +17,26 @@ import ShoppingAccount from "./pages/shopping-view/account"
 import { CheckAuth } from "./components/common/check-auth"
 import UnAuthPage from "./pages/unauth-page"
 import { useSelect } from "@chakra-ui/react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { checkAuth } from "./store/auth-slice"
 
 function App() {
 
   // const isAuthenticated = false
   // const user = null
 
-  const { user, isAuthenticated } = useSelector(state => state.auth)
+  const { user, isAuthenticated, isLoading } = useSelector(state => state.auth)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(checkAuth())
+  }, [dispatch])
+
+  if (isLoading) return <div>Loading...</div>
+
+  console.log(isLoading, user);
+  
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
