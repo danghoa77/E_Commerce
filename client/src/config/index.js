@@ -1,4 +1,7 @@
+
+
 export const registerFormControls = [
+
     {
         name: "username",
         label: "User Name",

@@ -9,7 +9,10 @@ export function CheckAuth({ isAuthenticated, user, children }) {
 
     // Nếu chưa đăng nhập và không phải trang login hoặc register
     if (!isAuthenticated &&
-        !(location.pathname.includes('/login') || location.pathname.includes('/register'))) {
+        !(
+            location.pathname.includes('/login') ||
+            location.pathname.includes('/register')
+        )) {
         return <Navigate to='/auth/login' />
     }
 
